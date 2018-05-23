@@ -13,7 +13,9 @@ clean_pages_log = [
  '*********************', '*CLEAN PAGES RESULTS*', '*********************']
 
 def encodingReplacements(body):
-    newBody = body.replace('Ã©', 'é').replace('Ã', 'É').replace('â', "'").replace('Ã®', 'î').replace('Ã¨', 'è').replace('Ã ', 'à').replace('Ã§', 'ç').replace('Ãª', 'ê').replace('â', '–')
+    newBody = body.replace('Ã©', 'é').replace('Ã', 'É').replace('â', "'").replace('Ã®', 'î').replace('Ã¨',
+      'è').replace('Ã ', 'à').replace('Ã§', 'ç').replace('Ãª', 'ê').replace('â', '–').replace('Ã´',
+      'ô').replace('Ã', 'à')
     return newBody
 
 
@@ -27,22 +29,21 @@ def stripBborderSpace(input_string):
     from_bot = []
     soup = BeautifulSoup(input_string, 'html.parser')
     if soup:
-        while 1:
+        while (True):
             try:
                 first_element = soup.find()
                 first_element_join = ('').join(str(first_element).split())
             except:
                 break
-
             if first_element_join in border_blacklist:
                 from_top.append(str(first_element))
                 first_element.extract()
                 if changes_flag != 1:
                     changes_flag = 1
-                else:
-                    break
+            else:
+                break
 
-        while 1:
+        while (True):
             try:
                 last_element = soup.find_all()[-1]
                 last_element_join = ('').join(str(last_element).split())
@@ -52,7 +53,8 @@ def stripBborderSpace(input_string):
             if last_element_join in border_blacklist:
                 from_bot.append(str(last_element))
                 last_element.extract()
-                changes_flag = changes_flag != 1 and 1
+                if changes_flag != 1:
+                    changes_flag = 1
             else:
                 break
 
@@ -68,8 +70,7 @@ def stripBborderSpace(input_string):
 
 def removeHieroglyphs(input_string):
     global changes_flag
-    undesirable_elements = [
-     '�', '/*&lt;![CDATA[*/', '/*]]&gt;*/']
+    undesirable_elements = ['Â','/*&lt;![CDATA[*/','/*]]&gt;*/']
     found_undesirable_elements = []
     output_string = input_string
     for undesirable_element in undesirable_elements:
@@ -225,7 +226,7 @@ def runCleaningSequence(page):
     if changes_flag == 1:
         API.updatePageBody(page['url'], clean_body)
         printAndLog(page['title'])
-
+    return
 
 def MasterCleanPages():
     print('****Cleaning page content of all pages in course****')
