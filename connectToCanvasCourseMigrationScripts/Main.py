@@ -15,7 +15,7 @@ def mainLoop():
             print('Select from the following by entering the number/key associated with your desired action(s):')
             print('Migrations*')
             print('    1. Convert HTML files to pages -> Delete residual HTML files -> Fix broken internal links')
-            print('    2. Break up a module (can be skipped) -> Make all page pitles pnique -> Clean all content pages')
+            print('    2. Break up a module (can be skipped) -> Make all page titles unique -> Clean all content pages')
             print('Services*')
             print('    a. Restore all content pages to first version')
             print('    b. Make all external links in modules open in new tabs')
