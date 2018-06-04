@@ -7,7 +7,7 @@ import Init, API_Calls as API
 def enterCourse():
     while True:
         input_short_course_id = input('Enter Course ID:')
-        input_full_course_id = '11224' + input_short_course_id.zfill(13)
+        input_full_course_id = '#Your token prefix/account number goes here' + input_short_course_id.zfill(13)
         try:
             course = API.testCourse(input_full_course_id)
             print(('Found Course: ({})\n').format(course['name']))
