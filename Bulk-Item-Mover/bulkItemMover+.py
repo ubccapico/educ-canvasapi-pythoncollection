@@ -5,6 +5,9 @@
 #
 # Contact Information: nicholassjbeaulieu@protonmail.com
 #
+# WARNING: Canvas will cause this script to break if there are too many items in a module. The API will not send item 
+# information if there are around 400-500 items in a single module.
+# 
 # Description: This script has two functions that are designed to achieve similar results, but for different scenarios.
 # As a brief prelude to the functions, be aware that a table is printed in terminal that shows all module and item
 # positions. Always refer to the table whenever possible. If a module is removed, but no others are rearranged, Canvas
