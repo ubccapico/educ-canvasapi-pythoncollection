@@ -17,6 +17,6 @@ pip3 install requests
 ## Running the scripts
 In your shell or terminal, go into the folder where all these scripts are located and run the Main.py file using the commend:
 ```
-python3 run Main.py
+python3 Main.py
 ```
 You'll then be presented with a menu asking which script you'd like to run along with some other prompts to complete what you're working on.
